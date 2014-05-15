@@ -12,8 +12,6 @@ var opts = {
 
 		},
 		body = '';
-		//console.log(opts.host + opts.path);
-
 
 		http.request(opts, function(result){
 
@@ -31,10 +29,7 @@ var opts = {
 
 			result.on('end', function(){
 
-				//console.log(body);
-				//body = decodeURIComponent(body);//JSON.parse(decodeURIComponent(body));
 				body = JSON.parse(body);
-				//console.log(moment);
 
 				res.render('index', { title: 'Express', copyright: body.attributionHTML, comics: body.data.results });
 
@@ -44,7 +39,6 @@ var opts = {
 
 }
 
-/* GET home page. */
 router.get('/', function(req, res) {
 
 	render(res);

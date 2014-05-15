@@ -24,18 +24,6 @@ module.exports.getThisWeek = function (res){
 			nextSunday = sunday + 7,
 			formatted;
 
-			/*if (sunday === 0) {
-
-				month = month - 1;
-
-			}
-
-			if (month < 0) {
-
-				year = year - 1;
-				month = month + 1;
-
-			}*/
 
 			formatted = year + '-' + month + '-' + sunday + ',' + year + '-' + month + '-' + nextSunday;
 
@@ -44,15 +32,13 @@ module.exports.getThisWeek = function (res){
 
 
 		}
-		//console.log( date.getFullYear(), date.getMonth() + 1, date.getDate() - day);
-		//console.log(date.today());
-		//console.log(getWeek());
+
 		(function(){
 
 			opts = {
 
 				host: 'gateway.marvel.com',
-				path: '/v1/public/comics?dateRange=' + getWeek()/*2014-05-11%2C2014-05-17*/ + '&limit=100	' + args
+				path: '/v1/public/comics?dateRange=' + getWeek() + '&limit=100	' + args
 
 			};
 
@@ -76,17 +62,12 @@ module.exports.getThisWeek = function (res){
 
 				result.on('end', function(){
 
-					//console.log(body);
-					//body = decodeURIComponent(body);//JSON.parse(decodeURIComponent(body));
 					body = JSON.parse(body);
 					body.data.results.forEach( function(i){
 
 					i.dates.forEach( function(e){
 						var date = {type: 'sale', 'date': ''};
 
-						//console.log(e)
-
-						//console.log(i.dates);
 						if (e.type === 'onsaleDate') {
 
 							e.date = moment(e.date).format('D MMM YYYY');
@@ -96,8 +77,6 @@ module.exports.getThisWeek = function (res){
 
 
 						}
-
-						//console.log(moment.format(e.date));
 
 
 					});

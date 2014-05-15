@@ -21,26 +21,24 @@ module.exports.retrieve = function(res, id){
 
 	console.log(id);
 
-	http.request(opts, function(result){
+	http.request(opts, function(result) {
 
 		result.setEncoding('utf8');
 
-		result.on('data', function(chunk){
+		result.on('data', function(chunk) {
 
 			body += chunk;
 
 		});
 
-		result.on('error', function(error){
+		result.on('error', function(error) {
 
 			console.log('err', error.message);
 
 		});
 
-		result.on('end', function(){
+		result.on('end', function() {
 
-			//console.log(body);
-			//body = decodeURIComponent(body);//JSON.parse(decodeURIComponent(body));
 			body = JSON.parse(body);
 			
 			res.json(body);
