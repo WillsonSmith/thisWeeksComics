@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	//h1 Test
+
+	div(class='container')
+		- for comic in comics
+				div(class='comicContainer active')
+					div(class='comic') 
+						div(class='title') #{comic.title}
+						div(class='comicImage')
+							img(src=comic.thumbnail.path + '.' + comic.thumbnail.extension)
+						- for price in comic.prices
+							div(class='info')
+								if (price.type === 'printPrice')
+									section() Print Price: #{price.price}
+								else
+									section() #{price.type}: #{price.price}
+								//div(class='priceCost') #{price.price}
+
+								div(class='date') Sale Date: #{comic.dates.date}
+
+					div(class='description')
+						p #{comic.description}
+						a(href=comic.urls[0].url) Check out more on Marvel

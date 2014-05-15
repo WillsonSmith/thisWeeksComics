@@ -1,7 +1,7 @@
 extends layout
 
 block content
-	h1 This Week's Comics
+	//h1 This Week's Comics
 	//p Welcome to #{title}
 	div(class='container')
 		//#{copyright}
@@ -13,11 +13,14 @@ block content
 					div(class='comicImage')
 						img(src=comic.thumbnail.path + '.' + comic.thumbnail.extension)
 					- for price in comic.prices
-						div(class='price')
+						div(class='info')
 							if (price.type === 'printPrice')
 								section() Print Price: #{price.price}
 							else
 								section() #{price.type}: #{price.price}
 							//div(class='priceCost') #{price.price}
 
-					div(class='date') Sale Date: #{comic.dates.date}
+							div(class='date') Sale Date: #{comic.dates.date}
+
+	!{copyright}
+	script(src='javascripts/app.js')

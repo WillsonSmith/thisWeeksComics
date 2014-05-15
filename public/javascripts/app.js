@@ -1,6 +1,6 @@
 (function(){
 
-var a = document.querySelectorAll('a');
+var a = document.querySelectorAll('.comic a');
 
 function connect(method, location, callback){
 
@@ -98,12 +98,14 @@ var i;
 
 			}
 
-			console.log (this.parentNode.parentNode.parentNode.classList);
+			//console.log (this.parentNode.parentNode.parentNode.classList);
 
 			//set last toggle, change if click another
 			//top bar with loading indicator
 
-			height = this.offsetTop;
+			height = this.parentNode.parentNode.offsetTop;
+			//console.log(this);
+			//console.log(height);
 
 			window.scrollTo(0, height);
 

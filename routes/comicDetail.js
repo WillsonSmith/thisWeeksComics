@@ -1,23 +1,28 @@
 var express = require('express');
 var router = express.Router();
 
-var moment = require('moment');
+//var func = require('./getComic.js');
+/* GET users listing. */
+
+function render(res, query){
 
 var http = require('http');
-function render(res){
+
 var opts = {
 
 			port: '3000',
-			path: '/week'
+			path: '/comic/' + query
 
 		},
 		body = '';
 		//console.log(opts.host + opts.path);
-
+		//console.log(opts.path);
 
 		http.request(opts, function(result){
+			
 
 			result.on('data', function(chunk){
+				//console.log('dat');
 
 				body += chunk;
 
@@ -35,8 +40,9 @@ var opts = {
 				//body = decodeURIComponent(body);//JSON.parse(decodeURIComponent(body));
 				body = JSON.parse(body);
 				//console.log(moment);
+				console.log('test');
 
-				res.render('index', { title: 'Express', copyright: body.attributionHTML, comics: body.data.results });
+				res.render('comicDetail', { title: 'Express', copyright: body.copyright, comics: body.data.results });
 
 			});
 
@@ -44,11 +50,14 @@ var opts = {
 
 }
 
-/* GET home page. */
-router.get('/', function(req, res) {
+exports.comicDetail = function(req, res){
 
-	render(res);
-	//res.render('index', { title: 'Express' });
-});
+	var query = req.params.comic;
+	//console.log(query);
+	//console.log(req.params);
+	render(res, query);
+	//var data = func.retrieve(res, query);
 
-module.exports = router;
+};
+
+//module.exports = router;
