@@ -1,3 +1,5 @@
+//Needs a lot of refactoring
+
 (function(){
 
 var a = document.querySelectorAll('.comic a');
