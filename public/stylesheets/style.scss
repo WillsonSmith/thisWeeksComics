@@ -1,0 +1,159 @@
+@mixin breakpoint($point) {
+	@if $point == papa-bear {
+		@media (min-width: 1600px) { @content; }
+	}
+	@else if $point == mama-bear {
+		@media (min-width: 1250px) { @content; }
+	}
+	@else if $point == baby-bear {
+		@media (min-width: 650px)  { @content; }
+	}
+}
+
+*, *:before, *:after {
+  
+  box-sizing: border-box; 
+
+}
+
+
+body {
+
+	margin: 0;
+	padding: 0;
+
+	background: #ECF0F1;
+	font-size: 1.3em;
+	font-family: "HelveticaNeue","Helvetica","Arial",sans-serif;
+
+}
+/*body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}*/
+a {
+
+  color: #00B7FF; 
+
+}
+
+p {
+
+	padding: 0;
+	margin: 0;
+
+}
+
+
+.container {
+
+	display: flex;
+
+	flex-direction: row;
+
+	flex-wrap: wrap;
+
+}
+
+.comicContainer{
+
+
+	padding: 0.5em;	
+
+	width: 100%;
+
+	//overflow: hidden;
+	
+	@include breakpoint(baby-bear){
+
+		width: 50%;
+		padding: 1em;
+
+	}
+	
+	@include breakpoint(mama-bear){
+
+		width: 25%;
+		padding: 1em;
+
+	}
+
+}
+
+.description {
+
+	background: rgba(236, 246, 251, 1);
+	padding: 1em;
+
+}
+
+.hide {
+
+	display: none;
+
+}
+
+.active {
+
+	width: 100%;
+	background: white;
+	display: flex;
+
+	flex-direction: row;
+
+	flex-wrap: wrap;
+
+	.hide {
+
+		display: block;
+
+	}
+
+	@include breakpoint(baby-bear){
+
+		flex-wrap: nowrap;
+
+	}
+
+	.comic{
+
+		height: auto;
+
+		@include breakpoint(baby-bear){
+
+			width: 33%;
+
+		}
+
+
+	}
+
+}
+.comic {
+
+	background: #fff;
+
+	width: 100%;
+	height: 100%;
+	padding: 1em;
+
+
+
+
+}
+
+.comicImage img {
+
+	max-width: 100%;
+
+}
+
+.price {
+
+	div {
+
+		float: left;
+
+	}
+
+}

@@ -1,0 +1,101 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #ECF0F1;
+  font-size: 1.3em;
+  font-family: "HelveticaNeue","Helvetica","Arial",sans-serif; }
+
+/*body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}*/
+a {
+  color: #00B7FF; }
+
+p {
+  padding: 0;
+  margin: 0; }
+
+.container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+
+.comicContainer {
+  padding: 0.5em;
+  width: 100%; }
+  @media (min-width: 650px) {
+    .comicContainer {
+      width: 50%;
+      padding: 1em; } }
+  @media (min-width: 1250px) {
+    .comicContainer {
+      width: 25%;
+      padding: 1em; } }
+
+.description {
+  background: #ecf6fb;
+  padding: 1em; }
+
+.hide {
+  display: none; }
+
+.active {
+  width: 100%;
+  background: white;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-box-orient: horizontal;
+  -moz-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  .active .hide {
+    display: block; }
+  @media (min-width: 650px) {
+    .active {
+      -webkit-flex-wrap: nowrap;
+      -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap; } }
+  .active .comic {
+    height: auto; }
+    @media (min-width: 650px) {
+      .active .comic {
+        width: 33%; } }
+
+.comic {
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  padding: 1em; }
+
+.comicImage img {
+  max-width: 100%; }
+
+.price div {
+  float: left; }
