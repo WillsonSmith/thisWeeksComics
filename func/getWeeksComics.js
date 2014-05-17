@@ -1,13 +1,14 @@
+console.log(require('./required.js').require.md5);
 module.exports.getThisWeek = function (res){
 	
-	var http = require('http'),
+	var r = require('./required.js').require,
+		http = r.http,
 		crypto = require('crypto'),
 		md5 = crypto.createHash('md5'),
-		moment = require('moment'),
-		pubKey = require('../api/api.js').pubKey,
-		privKey = require('../api/api.js').privKey,
-		date = new Date(),
-		time = date.getTime(),
+		pubKey = r.pubKey,
+		privKey = r.privKey,
+		time = r.date.getTime(),
+		moment = r.moment,
 		args = '&ts=' + time + '&apikey=' + pubKey + '&hash=' + md5.update(time + privKey + pubKey).digest('hex'),
 		opts,
 		body = '';
@@ -15,7 +16,7 @@ module.exports.getThisWeek = function (res){
 		//should probably change this to something else
 		function getWeek(){
 
-			var current = date,
+			var current = r.date,
 			year = current.getFullYear(),
 			month = current.getMonth() + 1,
 			day = current.getDay(),

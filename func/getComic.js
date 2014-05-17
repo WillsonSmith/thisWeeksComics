@@ -1,12 +1,12 @@
 module.exports.retrieve = function(res, id){
 
-	var http = require('http'),
+	var r = require('./required.js').require,
+		http = r.http,
 		crypto = require('crypto'),
 		md5 = crypto.createHash('md5'),
-		pubKey = require('../api/api.js').pubKey,
-		privKey = require('../api/api.js').privKey,
-		date = new Date(),
-		time = date.getTime(),
+		pubKey = r.pubKey,
+		privKey = r.privKey,
+		time = r.date.getTime(),
 		args = '?ts=' + time + '&apikey=' + pubKey + '&hash=' + md5.update(time + privKey + pubKey).digest('hex');
 		
 

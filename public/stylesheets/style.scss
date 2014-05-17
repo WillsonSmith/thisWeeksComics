@@ -2,6 +2,8 @@ $pom: #e74c3c;
 $bars: #fff;//#3c3c3c;
 $barText: #000;//#f5f5f5;
 
+@import "font";
+
 @mixin breakpoint($point) {
 	@if $point == papa-bear {
 		@media (min-width: 1600px) { @content; }
@@ -26,7 +28,7 @@ body {
 	margin: 0;
 	padding: 0;
 
-	background: $pom;//#ECF0F1;
+	background: $pom;//#ECF0F1; 
 	font-size: 1.3em;
 	font-family: "HelveticaNeue","Helvetica","Arial",sans-serif;
 
@@ -43,6 +45,8 @@ a {
 
 p {
 
+	font-family: 'mulilight', sans-serif;
+ 
 	padding: 0;
 	margin: 0;
 
@@ -140,6 +144,12 @@ header {
 	background: rgba(236, 246, 251, 1);
 	padding: 1em;
 
+	@include breakpoint(baby-bear) {
+
+		width: 66.66%;
+
+	}
+
 }
 
 .hide {
@@ -176,7 +186,7 @@ header {
 
 		@include breakpoint(baby-bear){
 
-			width: 33%;
+			width: 33.33%;
 
 		}
 

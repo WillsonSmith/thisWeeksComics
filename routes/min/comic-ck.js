@@ -1,1 +1,0 @@
-var express=require("express"),router=express.Router(),func=require("./getComic.js");exports.comic=function(e,r){var o=e.params.comic;console.log(o),console.log(e.params);var s=func.retrieve(r,o)};
