@@ -25,7 +25,6 @@ a {
   color: #00B7FF; }
 
 p {
-  font-family: 'mulilight', sans-serif;
   padding: 0;
   margin: 0; }
 
@@ -50,6 +49,7 @@ header {
     margin: 0; }
 
 .container {
+  font-family: 'mulilight', sans-serif;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
