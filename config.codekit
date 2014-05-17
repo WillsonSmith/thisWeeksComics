@@ -46,6 +46,28 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
+	"\/func\/min\/getComic-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/func\/min\/getComic-ck.js",
+		"outputAbbreviatedPath": "\/func\/min\/min\/getComic-ck-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
+	"\/func\/min\/getWeeksComics-ck.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/func\/min\/getWeeksComics-ck.js",
+		"outputAbbreviatedPath": "\/func\/min\/min\/getWeeksComics-ck-ck.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/func\/min\/required-ck.js": {
 		"fileType": 64,
 		"ignore": 1,

@@ -1,4 +1,3 @@
-console.log(require('./required.js').require.md5);
 module.exports.getThisWeek = function (res){
 	
 	var r = require('./required.js').require,
