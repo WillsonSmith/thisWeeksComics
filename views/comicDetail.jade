@@ -18,7 +18,8 @@ block content
 									section() #{price.type}: #{price.price}
 								//div(class='priceCost') #{price.price}
 
-								div(class='date') Sale Date: #{comic.dates.date}
+								div(class='date') Sale Date: #{comic.dates[0].date}
+								//need to add moment
 
 					div(class='description')
 						p #{comic.description}
