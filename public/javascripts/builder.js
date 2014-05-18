@@ -34,7 +34,7 @@ var App = (function() {
 						}
 
 					}
-				//console.log(dupeTags);
+
 				App.populateItem("all", data[increment], dupe, dupeTags);
 
 				return dupe;
@@ -63,7 +63,7 @@ var App = (function() {
 
 						}
 
-						/*innerElements[i]*/
+
 						element.appendChild(toAppend);
 
 					}
@@ -78,49 +78,6 @@ var App = (function() {
 				setEach(tags[i]);
 
 			}
-
-		},
-
-		generateItem : function(type, data, element, def) {
-			//add generation for elements created in markup
-				//this would use something like data-times to copy it and make more
-				//migt make this something else, not under generate
-
-			function generateList(data, item){
-
-				var ul = document.createElement("ul"),
-					li;
-
-				if (data === undefined && def === true) {
-
-					data = ['data not found'];
-
-				}
-
-				for (var i = 0, l = data.length; i < l; i++) {
-
-					li = document.createElement("li");
-					li.innerHTML = data[i];
-
-					ul.appendChild(li);
-
-				}
-
-				element.appendChild(ul);
-
-			}
-
-			switch(type){
-
-				case "list" :
-					generateList(data, element);
-					break;
-				/*case "default" :
-					generateDefault(data, element, types);
-					break;*/
-
-			}
-
 
 		},
 
@@ -151,9 +108,9 @@ var App = (function() {
 					for (var i = 0, l = ofEach.length; i < l; i++) {
 
 						if (ofEach[i].getAttribute("data-data") && App.checkData(data, ofEach[i].getAttribute("data-data"))){
-//herehere
+
 							exists = data[ofEach[i].getAttribute("data-data")] ? true : false;
-							//console.log(ofEach[i].parentNode.remo);
+
 							if (!exists) {
 
 								ofEach[i].innerHTML = '';
@@ -162,7 +119,7 @@ var App = (function() {
 
 								ofEach[i].innerHTML = data[ofEach[i].getAttribute("data-data")]; 
 
-							}//need to cover data not recovered
+							}
 						}
 
 					}
@@ -171,7 +128,6 @@ var App = (function() {
 
 				for (var i = 0, l = tags.length; i < l; i++){
 
-					//element.querySelectorAll(tags[i]);
 					eachType.push(convert(element.querySelectorAll(tags[i]), tags[i]));
 
 					//making search through types, get data attributes
