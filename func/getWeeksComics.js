@@ -7,7 +7,8 @@ module.exports.getThisWeek = function (res){
 		pubKey = r.pubKey,
 		privKey = r.privKey,
 		time = r.date.getTime(),
-		moment = r.moment,
+		//moment = r.moment,
+		fmtDate = require('./fmtDate.js'),
 		args = '&ts=' + time + '&apikey=' + pubKey + '&hash=' + md5.update(time + privKey + pubKey).digest('hex'),
 		opts,
 		body = '';
@@ -63,26 +64,16 @@ module.exports.getThisWeek = function (res){
 				result.on('end', function(){
 
 					body = JSON.parse(body);
-					body.data.results.forEach( function(i){
 
-					i.dates.forEach( function(e){
-						var date = {type: 'sale', 'date': ''};
+					if ('data' in body) {
 
-						if (e.type === 'onsaleDate') {
+						body.data.results.forEach( function(i){
+							
+							fmtDate.fmt(i.dates);
 
-							e.date = moment(e.date).format('D MMM YYYY');
-							date.date = e.date;
+						});
+					}
 
-							i.dates = date;
-
-
-						}
-
-
-					});
-
-
-				});
 					res.json(body);
 
 				});

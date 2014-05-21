@@ -6,6 +6,7 @@ module.exports.retrieve = function(res, id){
 		md5 = crypto.createHash('md5'),
 		pubKey = r.pubKey,
 		privKey = r.privKey,
+		fmtDate = require('./fmtDate.js'),
 		time = r.date.getTime(),
 		args = '?ts=' + time + '&apikey=' + pubKey + '&hash=' + md5.update(time + privKey + pubKey).digest('hex');
 		
@@ -54,6 +55,16 @@ module.exports.retrieve = function(res, id){
 			}*///may or may not need
 
 			body = JSON.parse(body);
+			
+			if ('data' in body) {
+
+				body.data.results.forEach(function(i){
+
+					fmtDate.fmt(i.dates);
+
+				});
+
+			}
 			
 			res.json(body);
 
