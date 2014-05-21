@@ -7,32 +7,40 @@ module.exports.getThisWeek = function (res){
 		pubKey = r.pubKey,
 		privKey = r.privKey,
 		time = r.date.getTime(),
-		//moment = r.moment,
+		moment = r.moment,
 		fmtDate = require('./fmtDate.js'),
 		args = '&ts=' + time + '&apikey=' + pubKey + '&hash=' + md5.update(time + privKey + pubKey).digest('hex'),
 		opts,
 		body = '';
 
 		//should probably change this to something else
+
+		function setDateTime(object, dateObject) {
+
+			object.date = moment(dateObject).format('YYYY-MM-D');
+
+		}
+
 		function getWeek(){
 
 			var current = r.date,
-			year = current.getFullYear(),
-			month = current.getMonth() + 1,
-			day = current.getDay(),
-			theDate = current.getDate(),
-			sunday = theDate - day,
-			nextSunday = sunday + 7,
+			o1 = {},
+			o2 = {},
 			formatted;
 
+			current.setDate(current.getDate() - current.getDay());
+			setDateTime(o1, current);
 
-			formatted = year + '-' + month + '-' + sunday + ',' + year + '-' + month + '-' + nextSunday;
+			current.setDate(current.getDate() + 7);
+			setDateTime(o2, current);
 
+			formatted = o1.date + ',' + o2.date;
 
 			return formatted;
 
 
 		}
+
 
 		(function(){
 
@@ -62,16 +70,27 @@ module.exports.getThisWeek = function (res){
 				});
 
 				result.on('end', function(){
+					var thingie;
 
 					body = JSON.parse(body);
 
 					if ('data' in body) {
 
-						body.data.results.forEach( function(i){
-							
-							fmtDate.fmt(i.dates);
+						fmtDate.fmt(body);
+						/*for (var i = 0; i < body.data.results.length; i++) {
 
-						});
+							thingie = fmtDate.fmt(body.data.results[i].dates);
+
+						}
+						console.log(thingie);*/
+						/*body.data.results.forEach( function(i, index){
+
+							
+							//body.data.results[index].dates = moment(i[0].date).format('D MMM YYYY');
+							fmtDate.fmt(body.data.results[index].dates);
+
+
+						});*/
 					}
 
 					res.json(body);

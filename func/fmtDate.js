@@ -1,19 +1,36 @@
 var moment = require('moment');
-var format = function(item) {
 
-	item.forEach( function(i){
+function innerLoop(result) {
+
+	for (var j = 0; j < result.dates.length; j++) {
+
 		var date = {type: 'sale', 'date': ''};
 
-		if (i.type === 'onsaleDate') {
 
-			date.date = moment(i.date).format('D MMM YYYY');
+		if (result.dates[j].type === 'onsaleDate') {
 
-			i.dates = date;
+			date.date = moment(result.dates[j].date).format('D MMM YYYY');
+
+			result.dates = date;
 
 		}
 
-	});
+	}
 
+}
+
+var format = function(body) {
+
+	var results = body.data.results,
+		length = results.length;
+
+	for (var i = 0; i < length; i++) {
+
+		innerLoop(body.data.results[i]);
+
+	}
+
+	
 };
 
 module.exports.fmt = format;

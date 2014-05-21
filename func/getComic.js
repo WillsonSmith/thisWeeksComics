@@ -58,11 +58,7 @@ module.exports.retrieve = function(res, id){
 			
 			if ('data' in body) {
 
-				body.data.results.forEach(function(i){
-
-					fmtDate.fmt(i.dates);
-
-				});
+				fmtDate.fmt(body);
 
 			}
 			
