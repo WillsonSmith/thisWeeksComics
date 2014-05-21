@@ -39,6 +39,20 @@ module.exports.retrieve = function(res, id){
 
 		result.on('end', function() {
 
+			/*try {
+			
+				body = JSON.parse(body);
+			
+			} catch (er) {
+
+				return {
+
+					error: er
+
+				};
+
+			}*///may or may not need
+
 			body = JSON.parse(body);
 			
 			res.json(body);

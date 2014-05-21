@@ -36,9 +36,15 @@ var opts = {
 
 				body = JSON.parse(body);
 
-				console.log('test');
+				if (body.code === 404) {
 
-				res.render('comicDetail', { title: 'Express', copyright: body.copyright, comics: body.data.results });
+					res.render('comicDetail', { title: 'Express', error: '404', copyright: 'none', comics: 'none' });
+
+				} else {
+
+					res.render('comicDetail', { title: 'Express', copyright: body.copyright, comics: body.data.results });
+
+				}
 
 			});
 
