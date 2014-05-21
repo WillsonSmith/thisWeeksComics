@@ -1,7 +1,5 @@
 var moment = require('moment');
 var format = function(item) {
-	//console.log(item);
-	//console.log(item);
 
 	item.forEach( function(i){
 		var date = {type: 'sale', 'date': ''};
