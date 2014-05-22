@@ -2,10 +2,9 @@ var moment = require('moment');
 
 function innerLoop(result) {
 
+	var date = {type: 'sale', 'date': ''};
+
 	for (var j = 0; j < result.dates.length; j++) {
-
-		var date = {type: 'sale', 'date': ''};
-
 
 		if (result.dates[j].type === 'onsaleDate') {
 
