@@ -28,6 +28,8 @@ module.exports.getThisWeek = function (res){
 			o2 = {},
 			formatted;
 
+			console.log(r.date);
+
 			current.setDate(current.getDate() - current.getDay());
 			//console.log(current.getDate(), current.getDate() - current.getDay());
 			setDateTime(o1, current);

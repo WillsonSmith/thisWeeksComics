@@ -67,13 +67,16 @@ function createDescription(el, data){
 
 }
 
-var i;
+//var i;
 
-	function setWidth(e){
+	function setWidth(e) {
 		var height,
-			data;
+			data,
+			topLevel;
 
 		e.preventDefault();
+
+		topLevel = this.parentNode.parentNode.parentNode;
 
 
 		//console.log(data.respond());
@@ -84,12 +87,12 @@ var i;
 			createDescription(this, data.respond());
 		}
 
-			this.parentNode.parentNode.parentNode.classList.toggle('active');
+			topLevel.classList.toggle('active');
 
-			if (this.parentNode.parentNode.parentNode.classList.contains('active')){
+			if (topLevel.classList.contains('active')){
 
 
-				history.pushState(null, null, '/comics/' + this.getAttribute('data-id'));
+				history.pushState(null, null, this.href);//'/comics/' + this.getAttribute('data-id'));
 			
 
 			} else {
@@ -105,7 +108,7 @@ var i;
 			//set last toggle, change if click another
 			//top bar with loading indicator
 
-			height = this.parentNode.parentNode.offsetTop;
+			height = topLevel.offsetTop;
 			//console.log(this);
 			//console.log(height);
 
@@ -114,7 +117,7 @@ var i;
 
 	}
 
-	for (i = 0; i < a.length; i++){
+	for (var i = 0; i < a.length; i++){
 
 		a[i].addEventListener('click', setWidth, false);
 
