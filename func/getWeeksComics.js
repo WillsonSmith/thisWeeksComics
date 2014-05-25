@@ -23,12 +23,13 @@ module.exports.getThisWeek = function (res){
 
 		function getWeek(){
 
-			var current = r.date,
+			var current = new Date(),//r.date,
 			o1 = {},
 			o2 = {},
 			formatted;
 
 			current.setDate(current.getDate() - current.getDay());
+			//console.log(current.getDate(), current.getDate() - current.getDay());
 			setDateTime(o1, current);
 
 			current.setDate(current.getDate() + 7);
